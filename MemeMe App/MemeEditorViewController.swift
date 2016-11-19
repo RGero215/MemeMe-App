@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     // TextField
     @IBOutlet weak var topTextField: UITextField!
@@ -49,6 +49,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotifications()
     }
@@ -117,8 +118,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             NSStrokeWidthAttributeName : -3
         ]
         
-        let attributedString = NSAttributedString(string: string, attributes: textFieldAtributes)
-        textField.attributedText = attributedString
+        textField.text = string
         textField.defaultTextAttributes = textFieldAtributes
         textField.textAlignment = .center
         textField.delegate = self
@@ -208,4 +208,3 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
 }
-

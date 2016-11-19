@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Meme Editor View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -75,6 +75,7 @@
                             <constraint firstItem="JlK-EY-heb" firstAttribute="top" secondItem="wvJ-VY-orX" secondAttribute="bottom" constant="36" id="Dk5-0v-VwQ"/>
                             <constraint firstItem="uZS-6s-5L4" firstAttribute="trailing" secondItem="wvJ-VY-orX" secondAttribute="trailing" id="EmL-XG-90i"/>
                             <constraint firstItem="CrC-ah-dzF" firstAttribute="trailing" secondItem="JlK-EY-heb" secondAttribute="trailing" id="Kmc-Ss-F3d"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="JlK-EY-heb" secondAttribute="bottom" id="N1Z-Lv-wPm"/>
                             <constraint firstItem="c7w-P0-6P1" firstAttribute="bottom" secondItem="JlK-EY-heb" secondAttribute="top" id="Szl-hH-JkQ"/>
                             <constraint firstItem="c7w-P0-6P1" firstAttribute="leading" secondItem="CrC-ah-dzF" secondAttribute="leading" id="aWz-Zd-K6o"/>
                             <constraint firstItem="CrC-ah-dzF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bMe-hz-Kg2"/>

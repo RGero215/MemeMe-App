@@ -86,6 +86,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         setupTextField(string: "BOTTOM", textField: bottomTextField)
         imagePickerView.image = nil
         shareButton.isEnabled = false
+        let destination = storyboard!.instantiateViewController(withIdentifier: "SentMemesControllers")
+        let memeEditorVC = destination as! UITabBarController
+        
+        present(memeEditorVC, animated: true, completion: nil)
     }
     
     @IBAction func pickAnImageFromCamera(_ sender: AnyObject) {
@@ -202,9 +206,24 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             existingMeme.memedImage = memedImage
         } else {
             let meme = Meme(top: topTextField.text!, bottom: bottomTextField.text!, image: imagePickerView.image!, memedImage: memedImage)
-            MemeManager.sharedInstance.appendMeme(meme)
+            //MemeManager.sharedInstance.appendMeme(meme)
+            
+            let object = UIApplication.shared.delegate
+            let appDelegate = object as! AppDelegate
+            appDelegate.memes.append(meme)
         }
+        
+        
     }
     
     
 }
+
+extension UIImagePickerController {
+    override open var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return [.landscape, .portrait]
+    }
+    
+}
+
+

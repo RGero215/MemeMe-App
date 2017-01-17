@@ -6,4 +6,22 @@
 //  Copyright © 2017 Ramon Geronimo. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class MemeDetailView : UIViewController {
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    var memeImage : UIImage!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let image = memeImage {
+            imageView.image = image
+        }
+    }
+
+}

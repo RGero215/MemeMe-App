@@ -59,6 +59,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         unsubscribeFromKeyboardNotifications()
     }
     
+    override var prefersStatusBarHidden: Bool{
+        return true
+    }
     
     @IBAction func btnShare(_ sender: UIBarButtonItem) {
         let memedImage = generateImage()
@@ -82,14 +85,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func btnCancel(_ sender: AnyObject) {
-        setupTextField(string: "TOP", textField: topTextField)
-        setupTextField(string: "BOTTOM", textField: bottomTextField)
-        imagePickerView.image = nil
-        shareButton.isEnabled = false
-        let destination = storyboard!.instantiateViewController(withIdentifier: "SentMemesControllers")
-        let memeEditorVC = destination as! UITabBarController
         
-        present(memeEditorVC, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func pickAnImageFromCamera(_ sender: AnyObject) {
@@ -141,7 +138,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func keyboardWillShow(_ notification:Notification) {
         if bottomTextField.isFirstResponder {
-            view.frame.origin.y = 0 - getKeyboardHeight(notification)
+            view.frame.origin.y = -getKeyboardHeight(notification)
         }
     }
     
@@ -160,15 +157,22 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // TextField Delegate
     
-        func textFieldDidBeginEditing(_ textField: UITextField) {
-            textField.text = ""
-            
-        }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        blankTextField(textField, whenEquals: topTextField, havingText: "TOP")
+        blankTextField(textField, whenEquals: bottomTextField, havingText: "BOTTOM")
         
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-            return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func blankTextField(_ textField: UITextField, whenEquals: UITextField!, havingText: String) {
+        if textField == whenEquals && textField.text! == havingText {
+            textField.text = ""
         }
+    }
     
     
     //Present image picker 
@@ -187,8 +191,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     func generateImage() -> UIImage {
         toolBarVisible(false)
         
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         

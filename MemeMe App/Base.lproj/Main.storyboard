@@ -321,17 +321,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p5x-hf-gJr">
-                                <rect key="frame" x="19" y="93" width="337" height="481"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="337" id="NeI-aG-rfT"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="p5x-hf-gJr" firstAttribute="centerX" secondItem="siF-Qt-X47" secondAttribute="centerX" id="5TE-hA-D9A"/>
-                            <constraint firstItem="p5x-hf-gJr" firstAttribute="centerY" secondItem="siF-Qt-X47" secondAttribute="centerY" id="9rm-C3-HQ4"/>
-                            <constraint firstItem="p5x-hf-gJr" firstAttribute="top" secondItem="PWY-bP-xUO" secondAttribute="bottom" constant="29" id="stK-bD-V2I"/>
+                            <constraint firstItem="p5x-hf-gJr" firstAttribute="top" secondItem="PWY-bP-xUO" secondAttribute="bottom" id="IBk-X6-sb4"/>
+                            <constraint firstItem="p5x-hf-gJr" firstAttribute="leading" secondItem="siF-Qt-X47" secondAttribute="leading" id="QEU-pY-qzR"/>
+                            <constraint firstAttribute="trailing" secondItem="p5x-hf-gJr" secondAttribute="trailing" id="f9X-5a-gpP"/>
+                            <constraint firstItem="p5x-hf-gJr" firstAttribute="bottom" secondItem="Bng-8q-GmM" secondAttribute="top" id="fWc-K6-8c8"/>
                         </constraints>
                     </view>
                     <connections>
@@ -340,7 +338,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xte-tB-gYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-278" y="139"/>
+            <point key="canvasLocation" x="-280.80000000000001" y="138.0809595202399"/>
         </scene>
     </scenes>
     <resources>
